@@ -1,7 +1,8 @@
 import axios from "axios"
 
-const baseUrl = "http://localhost:4000"
+const baseUrl =  process.env.NODE_ENV === "development" ? 'http://localhost:4000/api/tasks' : "https://todo-backend-67m1.onrender.com/api/tasks"
 export async function getTodos() {
+  console.log("env", process.env.NODE_ENV)
   const data = await axios.get(`${baseUrl}/getTodos`)
   console.log("data", data.data)
   return data.data
