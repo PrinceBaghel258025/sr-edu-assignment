@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+require("dotenv").config()
 const db = () => mongoose
-  .connect('mongodb://127.0.0.1:27017/temp')
+  .connect(process.env.DATABASE_URI)
   .then(() => console.log('db connected successfuly'))
   .catch((e) => console.log('db connection error', e));
 
